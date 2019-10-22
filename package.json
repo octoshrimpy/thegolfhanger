@@ -1,0 +1,26 @@
+{
+  "name": "thegolfhanger",
+  "version": "1.0.0",
+  "description": "thegolfhanger",
+  "main": "index.js",
+  "dependencies": {
+    "bulma": "^0.8.0",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel site/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/octoshrimpy/thegolfhanger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/octoshrimpy/thegolfhanger/issues"
+  },
+  "homepage": "https://gitlab.com/octoshrimpy/thegolfhanger#readme"
+}
