@@ -8,9 +8,12 @@
     "parcel": "^1.12.4",
     "parcel-bundler": "^1.12.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "posthtml-include": "^1.3.0",
+    "sass": "^1.23.0"
+  },
   "scripts": {
-    "start": "parcel site/index.html",
+    "start": "parcel site/index.html --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
