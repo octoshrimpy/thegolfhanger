@@ -101,3 +101,13 @@ body * {
 .fa,.fas,.far,.fab,.fal {
   @include animate;
 }
+
+$primary: tomato;
+// thegolfhanger shades
+$tgh-0: lighten($primary, 90%);
+$tgh-1: lighten($primary, 60%);
+$tgh-2: lighten($primary, 30%);
+
+$tgh-3: darken($primary, 30%);
+$tgh-4: darken($primary, 60%);
+$tgh-5: darken($primary, 90%);
