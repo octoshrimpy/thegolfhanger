@@ -2,10 +2,33 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 @import "~bulma/sass/utilities/functions.sass";
 
+//modify bulma here
 @import "_octo-template";
 
-// modify bulma here
-$primary: $tgh-3;
+// set primary color
+$primary: $black;
+
+
+// background image for hero,
+// with optional `is-transparent` & `is-very-transparent` modifier
+// https://codepen.io/leonidboykov/pen/Edvvpm
+.hero {
+  &.has-background {
+    position:relative;
+    overflow: hidden;
+  }
+  &-background {
+    position: absolute;
+    object-fit: cover;
+    object-position: center center;
+    &.is-transparent {
+      opacity: 0.3;
+    }
+    &.is-very-transparent {
+      opacity: 0.7;
+    }
+  }
+}
 
 @import "~bulma/sass/utilities/derived-variables.sass";
 
