@@ -30,8 +30,81 @@ $primary: $black;
   }
 }
 
+
+
+// flatUI to bulma colors
+$custom-colors: (
+  "midnight": ($midnight, findColorInvert($midnight)),
+  "asphalt": ($asphalt, findColorInvert($asphalt)),
+  "asbestos": ($asbestos, findColorInvert($asbestos)),
+  "concrete": ($concrete, findColorInvert($concrete)),
+  "silver": ($silver, findColorInvert($silver)),
+  "clouds": ($clouds, findColorInvert($clouds)),
+  "emerald": ($emerald, findColorInvert($emerald)),
+  "nephritis": ($nephritis, findColorInvert($nephritis)),
+  "turquoise": ($turquoise, findColorInvert($turquoise)),
+  "greensea": ($greensea, findColorInvert($greensea)),
+  "amethyst": ($amethyst, findColorInvert($amethyst)),
+  "wisteria": ($wisteria, findColorInvert($wisteria)),
+  "sunflower": ($sunflower, findColorInvert($sunflower)),
+  "orange": ($orange, findColorInvert($orange)),
+  "carrot": ($carrot, findColorInvert($carrot)),
+  "pumpkin": ($pumpkin, findColorInvert($pumpkin)),
+  "alizarin": ($alizarin, findColorInvert($alizarin)),
+  "pomegranate": ($pomegranate, findColorInvert($pomegranate)),
+  "river": ($river, findColorInvert($river)),
+  "belize": ($belize, findColorInvert($belize))
+);
+
+// custom functions
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+@function empty-map($x: x) {
+  @return map-remove(($x:$x), $x);
+}
+
+
+
+// create derived variables
 @import "~bulma/sass/utilities/derived-variables.sass";
 
-// add extra colors
+// create transparent modifiers
+$transp-colors: empty-map();
+@each $color,$value in $colors {
+  $_name: "#{$color}-transparent";
+  $_bg:   transparentize(nth($value, 1), 0.3);
+  $_fg:   nth($value, 2);
 
+  $transp-colors: map-merge(
+    $transp-colors,
+    ($_name: ($_bg, $_fg))
+  );
+}
+
+$v-transp-colors: empty-map();
+@each $color,$value in $colors {
+  $_name: "#{$color}-very-transparent";
+  $_bg:   transparentize(nth($value, 1), 0.7);
+  $_fg:   nth($value, 2);
+
+  $v-transp-colors: map-merge(
+    $v-transp-colors,
+    ($_name: ($_bg, $_fg))
+  );
+}
+
+$transparencies: mergeColorMaps($transp-colors, $v-transp-colors);
+$colors: mergeColorMaps($colors, $transparencies);
+
+
+
+
+
+// import and setup the rest of bulma
 @import "~bulma/bulma.sass";
